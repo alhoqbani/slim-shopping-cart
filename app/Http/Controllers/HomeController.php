@@ -22,7 +22,7 @@ class HomeController extends BaseController
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
+    public function index(ServerRequestInterface $request, ResponseInterface $response)
     {
 //        $user = new User($this->db);
 //        $users = $user->getAll();

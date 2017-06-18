@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-class User extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
 {
-    protected $table = 'users';
 }

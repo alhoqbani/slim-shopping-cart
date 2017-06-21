@@ -27,11 +27,11 @@ class HomeController
      * @internal param \Slim\Views\Twig $twig
      * @internal param $args
      */
-    public function index(ServerRequestInterface $request, ResponseInterface $response)
+    public function index(ServerRequestInterface $request, ResponseInterface $response, Product $product, Twig $view)
     {
-        $products = $product->get();
-        dd($products);
-        return $view->render($response, 'home.twig', [
+        $products = $product->limit(10)->get();
+        
+        return $view->render($response->withStatus(500), 'home.twig', [
             'products' => $products,
         ]);
     }

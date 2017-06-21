@@ -5,6 +5,10 @@ use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 
 return [
+//    'router' => DI\get(Slim\Router::class),
+    \Slim\Interfaces\RouterInterface::class => function(ContainerInterface $c) {
+    return $c->get('router');
+    },
     Twig::class => function (ContainerInterface $c) {
         
         $twig = new Twig(
@@ -39,5 +43,9 @@ return [
         $capsule->bootEloquent();
         
         return $capsule;
+    },
+    
+    \App\Models\Cart\Product::class => function ($c) {
+        return new \App\Models\Cart\Product();
     },
 ];
